@@ -118,27 +118,7 @@ asciineditor-gui
 
 ### Layout
 
-```
-+---------------------------------------------------------------+
-| [Open] [Save As] [Undo]        [Join Files]                   |
-+---------------------------------------------------------------+
-| sample.cast | 80x24 | 10.00s | 13 events | 2 markers         |
-+---------------------------------------------------------------+
-| Timeline    [====|===m=====m====|========]                     |
-+---------------------------------------------------------------+
-| [Set Start] [Set End] [Clear]  [Play] [Stop] Speed: [==] 1.0x |
-+---------------------------------------------------------------+
-| [Split] [Cut] [Speed Up] [Slow Down] [Custom] [+Mkr] [-Mkr]  |
-+---------------------------------------------------------------+
-| Terminal Display          | Events                             |
-| $ whoami                  | 0.5000  output  $ whoami           |
-| user                      | 1.0000  output  user               |
-| $ echo hello              | 2.0000  output  $ echo hello       |
-| hello                     | 2.5000  marker  section_start      |
-| $                         | 3.0000  output  hello               |
-|                           | ...                                |
-+---------------------------------------------------------------+
-```
+![asciineditor GUI](screenshot.png)
 
 ### Keyboard Shortcuts
 
