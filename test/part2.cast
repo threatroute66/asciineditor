@@ -1,0 +1,7 @@
+{"version": 2, "width": 80, "height": 24, "timestamp": 1504467315, "duration": 4.5, "title": "Test recording"}
+[0.0, "m", "section_end"]
+[0.5, "o", "$ date\r\n"]
+[1.5, "o", "Mon Jan  1 00:00:00 UTC 2024\r\n"]
+[2.5, "o", "$ echo done\r\n"]
+[3.5, "o", "done\r\n"]
+[4.5, "o", "$ "]

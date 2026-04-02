@@ -1,0 +1,8 @@
+{"version": 2, "width": 80, "height": 24, "timestamp": 1504467315, "duration": 6.0, "title": "Test recording"}
+[0.5, "o", "$ whoami\r\n"]
+[1.0, "o", "user\r\n"]
+[2.0, "o", "$ echo hello\r\n"]
+[2.5, "m", "section_start"]
+[4.0, "o", "$ echo done\r\n"]
+[5.0, "o", "done\r\n"]
+[6.0, "o", "$ "]
