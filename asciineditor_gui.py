@@ -492,6 +492,8 @@ class AsciineditorGUI:
                    command=self.do_split).pack(side=tk.LEFT, padx=4)
         ttk.Button(ops_inner, text="Cut Selection",
                    command=self.do_cut).pack(side=tk.LEFT, padx=4)
+        ttk.Button(ops_inner, text="Save Selection",
+                   command=self.do_save_selection).pack(side=tk.LEFT, padx=4)
         ttk.Button(ops_inner, text="Speed Up Selection",
                    command=lambda: self.do_speed(2.0)).pack(side=tk.LEFT, padx=4)
         ttk.Button(ops_inner, text="Slow Down Selection",
@@ -1132,6 +1134,36 @@ class AsciineditorGUI:
         messagebox.showinfo("Cut",
                             f"Cut {start_ts:.3f}s - {end_ts:.3f}s\n"
                             f"Removed {removed} events ({cut_duration:.3f}s)")
+
+    def do_save_selection(self):
+        if not self._require_selection():
+            return
+        self.play_stop()
+
+        start_ts, end_ts = self.start_marker, self.end_marker
+        selected = [ev for ev in self.events if start_ts <= ev[0] <= end_ts]
+        if not selected:
+            messagebox.showinfo("Info", "No events in the selected region.")
+            return
+
+        # Re-zero timestamps so the saved file starts at 0
+        result = [[ev[0] - start_ts, ev[1], ev[2]] for ev in selected]
+
+        base, ext = os.path.splitext(self.file_path or "recording.cast")
+        path = filedialog.asksaveasfilename(
+            title="Save Selection",
+            initialfile=f"{os.path.basename(base)}_selection{ext}",
+            defaultextension=".cast",
+            filetypes=[("Asciicast files", "*.cast"), ("All files", "*.*")])
+        if not path:
+            return
+
+        h = copy.deepcopy(self.header)
+        update_duration(h, result)
+        write_cast(path, h, result)
+        messagebox.showinfo("Save Selection",
+                            f"Saved {len(result)} events ({end_ts - start_ts:.3f}s)\n"
+                            f"to {path}")
 
     def do_speed(self, factor):
         if not self._require_selection():

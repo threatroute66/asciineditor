@@ -10,6 +10,7 @@ A command-line and GUI editor for [asciicast v2](https://docs.asciinema.org/manu
 - **Join** — Concatenate multiple recordings into a single file with configurable gaps
 - **Cut** — Remove a section between two points (by timestamp or marker)
 - **Speed** — Change playback speed of a specific section while keeping the rest unchanged
+- **Save Selection** — Export a selected region to a new file (GUI only)
 - **Add / Remove Markers** — Insert or delete named marker events in recordings
 - **GUI with Terminal Playback** — Visual timeline, integrated terminal display with ANSI color rendering, and synchronized event list
 
@@ -135,7 +136,7 @@ asciineditor-gui
 2. **Play** the recording to preview it in the terminal display
 3. **Click the timeline** to seek to any point (also renders the terminal at that moment)
 4. Use **Set Start** / **Set End** to select a region on the timeline
-5. Apply an operation: **Cut**, **Speed Up**, **Split**, etc.
+5. Apply an operation: **Cut**, **Speed Up**, **Split**, **Save Selection**, etc.
 6. **Undo** if needed (up to 30 levels)
 7. **Save As** to write the result
 
